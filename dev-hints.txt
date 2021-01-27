@@ -1,0 +1,35 @@
+we only encountered React elements that represent DOM tags:
+const element = <div />;
+
+However, elements can also represent user-defined components:
+const element = <Welcome name="Sara" />;
+https://reactjs.org/docs/components-and-props.html#function-and-class-components
+---------------------
+
+when creating an array, use array literal [] instead of new Array for simplicity, readability and execution speed.
+var cars = [
+  "Saab",
+  "Volvo",
+  "BMW"
+];
+var cars = new Array("Saab", "Volvo", "BMW"); 
+https://www.w3schools.com/js/js_arrays.asp
+---------------------
+
+Arrays are a special type of objects
+-------------------------
+
+function myFunction(value) {
+  text += "<li>" + value + "</li>";
+} 
+
+or 
+
+var myFunction = function()
+{
+
+}
+
+or 
+
+arrow functions
