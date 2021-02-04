@@ -33,3 +33,45 @@ var myFunction = function()
 or 
 
 arrow functions
+
+
+multiple ways to do a function 
+first: specifying it as an arrow function inside a variable
+const menu = props.dishes.map( (dish) => 
+        {
+            return (
+                <div key="{dish.id}" className="col-12 col-md-5 m-1">
+                    <RenderMenuItem dish={dish} onClick={props.onClick} />
+                </div>
+            );
+        });
+
+        return (
+            <div className="container">
+                <div className="row">
+                    {menu}
+                </div>
+            </div>
+        );
+
+Second: doing it inline
+<div className="col-12 col-md-5 m-1">
+                    <h4>Comments</h4>
+                    <div>
+                        {
+                            commnets.map( (comment) => 
+                            {
+                                return(
+                                    <ul className="list-unstyled">
+                                        <li> 
+                                            <p> {comment.comment} </p>
+                                            <p> -- {comment.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date((Date.parse(comment.date)))) } </p>
+                                        </li>
+                                    </ul>
+                                );   
+                            })
+                        }
+                    </div>
+                </div>
+
+third: doing it as a normal funciton
