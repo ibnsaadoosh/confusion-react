@@ -23,22 +23,24 @@ import {Card, CardImg, CardText, CardBody, CardTitle} from 'reactstrap';
     {        
         if(commnets != null)
         {
-            const commentList = commnets.map( (comment) => 
-            {
-                return(
-                    <ul className="list-unstyled">
-                        <li> 
-                            <p> {comment.comment} </p>
-                            <p> -- {comment.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date((Date.parse(comment.date)))) } </p>
-                        </li>
-                    </ul>
-                );   
-            });
-
             return (
                 <div className="col-12 col-md-5 m-1">
                     <h4>Comments</h4>
-                    <div>{commentList}</div>
+                    <div>
+                        {
+                            commnets.map( (comment) => 
+                            {
+                                return(
+                                    <ul className="list-unstyled">
+                                        <li> 
+                                            <p> {comment.comment} </p>
+                                            <p> -- {comment.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date((Date.parse(comment.date)))) } </p>
+                                        </li>
+                                    </ul>
+                                );   
+                            })
+                        }
+                    </div>
                 </div>
             );
         }
