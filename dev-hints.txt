@@ -75,3 +75,40 @@ Second: doing it inline
                 </div>
 
 third: doing it as a normal funciton
+
+------------------------------------------------------------------
+
+state is where I keep my class attributes(variables), so I use class component
+only when I have to handle a state, function component otherwise.
+
+------------------------------------------------------------------
+if you use class components, say this.props.Comments
+if you use function components, say props.Comments
+
+------------------------------------------------------------------
+I sent parameters like this:
+function RenderMenuItem({dish, onClick}) 
+and not like this (dish, onClick), as this function is not
+a function, it's a component, and the parameters passed to it as props
+<RenderMenuItem dish={dish} onClick={props.onClick} />
+
+
+
+---------------------------------------------------------
+const HomePage = () => {
+      return(
+          <Home 
+              dish={this.state.dishes.filter((dish) => dish.featured)[0]}
+              promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
+              leader={this.state.leaders.filter((leader) => leader.featured)[0]}
+          />
+      );
+    }
+
+<Route path='/home' component={HomePage} />
+<Route exact path='/menu' component={ () => <Menu dishes={this.state.dishes} /> } />
+<Route exact path='/contact' component={Contact} />
+
+- three different way of assigning component, 
+    -third one can be when you don't need to pass props
+    -first one if I will pass a lot of things
