@@ -112,3 +112,16 @@ const HomePage = () => {
 - three different way of assigning component, 
     -third one can be when you don't need to pass props
     -first one if I will pass a lot of things
+
+---------------------------------------------------------
+
+match, location, history
+
+---------------------------------------------------------
+
+Route passes three parameters to the component:
+match, location, history
+
+---------------------------------------------------------
+this is how to access objects array comments inside objects array dish
+(props.dish || {}).comments
