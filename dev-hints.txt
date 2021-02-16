@@ -123,5 +123,64 @@ Route passes three parameters to the component:
 match, location, history
 
 ---------------------------------------------------------
+
 this is how to access objects array comments inside objects array dish
 (props.dish || {}).comments
+
+---------------------------------------------------------
+currying is the technique of converting a function that takes multiple arguments into a sequence of functions that each take a single argument.
+
+const add = (x, y) => x + y
+add(2, 3) //=> 5
+
+const add = x => y => x + y
+add(2)(3) //=> 5
+
+const f   = someParam =>   returnValue
+const add = x         =>   (y => x + y)
+the same as : 
+const add = function (x) {
+  return function (y) {
+    return x + y
+  }
+}
+
+currying allows for different arguments to be supplied at various call sites
+along your program's timeline. This is useful in cases where all arguments are
+not ready at the same time/place.
+
+---------------------------------------------------------
+touched: { ...this.state.touched, [field]: true }
+The spread syntax is a new addition to the set of operators in JavaScript ES6. 
+It takes in an iterable (e.g an array) and expands it into individual elements.
+
+I'm using it to set touched as current touched array plus [field]: true
+so it will set 
+touched: {
+    firstname: false,
+    lastname: false,
+    telnum: false,
+    email: false
+}
+and then overwrite existing firstname(suppose field is firstname) with the new value(true)
+
+https://codeburst.io/what-are-three-dots-in-javascript-6f09476b03e1
+
+---------------------------------------------------------
+
+FormFeedback doesn't work without valid and invalid 
+<Col md={10}>
+    <Input type="text" id="firstname" name="firstname"
+        placeholder="First Name"
+        value={this.state.firstname}
+        valid={errors.firstname === '' && this.state.touched.firstname}
+        invalid={errors.firstname !== ''}
+        onBlur={this.handleBlur('firstname')}
+        onChange={this.handleInputChange}
+    />
+    <FormFeedback>{errors.firstname}</FormFeedback>
+</Col>
+if you remove valid and invalid, FormFeedback will not do anything
+
+a very good post on form validation
+https://www.freecodecamp.org/news/how-to-use-reacts-controlled-inputs-for-instant-form-field-validation-b1c7b033527e/
