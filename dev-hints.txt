@@ -182,5 +182,13 @@ FormFeedback doesn't work without valid and invalid
 </Col>
 if you remove valid and invalid, FormFeedback will not do anything
 
+---------------------------------------------------------
+
 a very good post on form validation
 https://www.freecodecamp.org/news/how-to-use-reacts-controlled-inputs-for-instant-form-field-validation-b1c7b033527e/
+
+---------------------------------------------------------
+
+Redux is a Flux-like approach for a react application
+
+---------------------------------------------------------
