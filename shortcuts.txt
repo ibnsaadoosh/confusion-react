@@ -1,0 +1,4 @@
+select line: ctrl + l 
+select word: ctrl + d
+move up or down : ctrl + up/down
+close explorer in vs : ctrl + b
