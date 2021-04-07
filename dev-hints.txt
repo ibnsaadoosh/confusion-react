@@ -192,3 +192,11 @@ https://www.freecodecamp.org/news/how-to-use-reacts-controlled-inputs-for-instan
 Redux is a Flux-like approach for a react application
 
 ---------------------------------------------------------
+
+hello = () => {return "Hello Worl3d!"};
+hello = () => (return "Hello Worl3d!");
+hello = () => "Hello Worl3d!";
+
+if you put {}, you must put return
+you can return by default either by
+putting () or putting nothing

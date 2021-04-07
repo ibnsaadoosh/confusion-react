@@ -12,35 +12,47 @@ class CommentForm extends Component
     constructor(props)
     {
         super(props);
+
+        //it works without binding!
+        this.toggleModal = this.toggleModal.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
         this.state=
         {
-            modalOpen: false
+            isModalOpen: false
         }
     }
 
-    handleToggle = () =>
+    toggleModal = () =>
     {
         this.setState(
             {
-                modalOpen: !this.state.modalOpen
+                isModalOpen: !this.state.isModalOpen
             }
         )
+    }
+
+    handleSubmit(values)
+    {
+        this.toggleModal();
+        alert('hi');
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
     render()
     {
         return(
             <React.Fragment>
-                <Button className="bg-white text-dark" onClick={this.handleToggle}>
+                <Button className="bg-white text-dark" onClick={this.toggleModal}>
                     <i className="fa fa-pencil fa-lg mr-1"/> 
                     Submit Comment
                 </Button>
-                <Modal isOpen={this.state.modalOpen} toggle={this.handleToggle}>
-                    <ModalHeader toggle={this.handleToggle}>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                    <ModalHeader toggle={this.toggleModal}>
                         Submit Comment
                     </ModalHeader>
                     <ModalBody>
-                        <LocalForm>
+                        <LocalForm onSubmit={this.handleSubmit}>
                             <Row className="form-group">
                                 <Label htmlFor="rating" md={12}>Rating</Label>
                                 <Col md={12}>
@@ -110,7 +122,7 @@ class CommentForm extends Component
         );
     }
 
-    function RenderComments({commnets})
+    function RenderComments({commnets, addComment, dishId})
     {        
         if(commnets != null)
         {
@@ -132,7 +144,7 @@ class CommentForm extends Component
                             })
                         }
                     </div>
-                    <CommentForm />
+                    <CommentForm dishId={dishId} addComment={addComment} />
                 </React.Fragment>
             );
         }
@@ -163,7 +175,9 @@ class CommentForm extends Component
                             <RenderDish dish={props.dish} />
                         </div> 
                         <div className="col-12 col-md-5 m-1">                 
-                            <RenderComments commnets={props.comments} />
+                            <RenderComments commnets={props.comments}
+                                        addComment={props.addComment}
+                                        dishId={props.dish.id} />
                         </div>
                     </div>
                 </div>
