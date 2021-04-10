@@ -1,3 +1,4 @@
+//this is a reducer
 import * as ActionTypes from './ActionTypes';
 
 export const Dishes = (state = 
@@ -17,7 +18,7 @@ export const Dishes = (state =
         
         case ActionTypes.DISHES_FAILED:
             return {...state, isLoading: false, errMes: action.payload};
-            
+
         default:
             return state;
     }
