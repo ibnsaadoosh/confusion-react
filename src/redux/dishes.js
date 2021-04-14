@@ -5,13 +5,13 @@ export const Dishes = (state =
     {
         isLoading: true,
         errMes: null,
-        dishes:[]
+        dishes: []
     }, action) => 
 {
     switch (action.type)
     {
         case ActionTypes.ADD_DISHES:
-            return {...state, isLoading: false, errMes: null, dishes: action.payload};
+            return {...state, isLoading: false, errMes: null, dishes: action.payload};            
         
         case ActionTypes.DISHES_LOADING:
             return {...state, isLoading: true, errMes: null, dishes: []};
@@ -22,4 +22,4 @@ export const Dishes = (state =
         default:
             return state;
     }
-}
+};

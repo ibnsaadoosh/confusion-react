@@ -200,3 +200,7 @@ hello = () => "Hello Worl3d!";
 if you put {}, you must put return
 you can return by default either by
 putting () or putting nothing
+
+---------------------------------------------------------
+
+json-server --watch db.json -p 3001 -d 2000
