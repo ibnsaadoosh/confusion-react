@@ -1,4 +1,4 @@
-import React, {Component, component} from 'react';
+import React, {Component} from 'react';
 import Home from './HomeComponent';
 import Menu from './MenuComponent';
 import Contact from './ContactComponent';
@@ -6,7 +6,7 @@ import About from './AboutComponent';
 import DishDetail from './DishdetailComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
-import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
+import {Switch, Route, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
@@ -35,11 +35,6 @@ const mapDispatchToProps = dispatch =>
 
 class Main extends Component
 {
-  constructor(props)
-  {
-    super(props);
-  }
-  
   //componentDidMount: whatever in this comoponent will be excuted after component is mounted into the view of my application
   componentDidMount()
   {
@@ -95,6 +90,7 @@ class Main extends Component
               </Switch>            
             </CSSTransition>
           </TransitionGroup>
+          <Footer />
         </div>
     );
   }
