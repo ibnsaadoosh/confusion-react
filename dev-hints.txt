@@ -204,3 +204,53 @@ putting () or putting nothing
 ---------------------------------------------------------
 
 json-server --watch db.json -p 3001 -d 2000
+
+
+
+important error if you forget to put dispatch in thunk like this
+export const postFeedback = (feedback) =>
+{
+and it should be like this if you want to use thunk(i.e to use fetch)
+export const postFeedback = (feedback) => (dispatch) =>
+{
+https://stackoverflow.com/questions/46765896/react-redux-actions-must-be-plain-objects-use-custom-middleware-for-async-acti
+
+2 ways to do first task in asssignment 4 coursera react:
+function ShowLeaders ({leaders, isLoading, errMess})
+{
+
+    if(isLoading)
+    {
+        return (
+            <Loading />
+        );
+    }
+    
+    else if(errMess)
+    {
+        return(
+            <h4> {errMess} </h4>
+        );
+    }
+
+    else
+    {
+        return(
+            <Stagger in>
+                {
+                    leaders.map((leader) => 
+                    {
+                        return (
+                            <Stagger in>
+                                <RenderLeader leader={leader} key={leader.id} />
+                            </Stagger>
+                        );
+                    });
+                }
+            </Stagger>  
+        )
+    }
+}
+
+with <ShowLeaders leaders={props.leaders.leaders} isLoading={props.leaders.isLoading} errMess={props.leaders.errMess} />
+or current implemented way
